@@ -6,46 +6,41 @@
     <title>NOA bar & brunch | Plovdiv</title>
     <style>
         :root { --gold: #c5a059; --dark: #0d0d0d; --card: #1a1a1a; }
-        body { background-color: var(--dark); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
+        body { background-color: var(--dark); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
         
-        /* Hero секция */
         .hero { 
-            height: 40vh;
+            height: 35vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{9E27278C-746C-4454-9F58-6CAC4BC91963}.png');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
             border-bottom: 2px solid var(--gold);
         }
-        .hero h1 { font-size: 3.5rem; letter-spacing: 10px; margin: 0; color: var(--gold); }
+        .hero h1 { font-size: 3rem; letter-spacing: 10px; margin: 0; color: var(--gold); }
 
         .container { padding: 20px; max-width: 600px; margin: auto; }
-        .section-title { color: var(--gold); border-left: 3px solid var(--gold); padding-left: 10px; margin: 30px 0 15px; text-transform: uppercase; letter-spacing: 2px; }
+        .section-title { color: var(--gold); border-left: 3px solid var(--gold); padding-left: 10px; margin: 30px 0 15px; text-transform: uppercase; }
 
-        /* Интерактивни карти */
         .item { 
             background: var(--card); border-radius: 15px; overflow: hidden; margin-bottom: 20px; 
-            border: 1px solid #333; cursor: pointer; transition: all 0.3s ease;
+            border: 1px solid #333; cursor: pointer; transition: 0.3s;
         }
-        .item img { width: 100%; height: 200px; object-fit: cover; transition: 0.3s; }
+        .item img { width: 100%; height: 220px; object-fit: cover; }
         
         .item-info { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .item-info h3 { margin: 0; font-size: 1.2rem; color: var(--gold); }
-        .item-info .price { font-weight: bold; font-size: 1.1rem; }
+        .item-info h3 { margin: 0; font-size: 1.1rem; color: var(--gold); }
+        .price { font-weight: bold; }
 
-        /* Скрито съдържание */
         .details { 
             max-height: 0; padding: 0 15px; overflow: hidden; 
-            transition: all 0.4s ease-out; background: #222; color: #ccc; font-size: 0.95rem; line-height: 1.6;
+            transition: all 0.3s ease-out; background: #222; color: #ccc; font-size: 0.9rem;
         }
-        .item.active .details { max-height: 200px; padding: 15px; border-top: 1px dashed var(--gold); }
-        .item.active img { height: 250px; }
-        .item.active { border-color: var(--gold); transform: translateY(-5px); }
+        .item.active .details { max-height: 150px; padding: 15px; border-top: 1px solid #333; }
 
         .footer-btn { 
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
             background: var(--gold); color: black; padding: 15px 0;
             text-decoration: none; border-radius: 50px; font-weight: bold;
-            width: 85%; text-align: center; z-index: 100; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            width: 85%; text-align: center; z-index: 100;
         }
     </style>
 </head>
@@ -59,6 +54,7 @@
     <div class="container">
         <h2 class="section-title">Основни ястия</h2>
         
+        <!-- КОТЛЕТЪТ С ПРАВИЛНАТА СНИМКА -->
         <div class="item" onclick="this.classList.toggle('active')">
             <img src="{9E27278C-746C-4454-9F58-6CAC4BC91963}.png">
             <div class="item-info">
@@ -66,10 +62,11 @@
                 <span class="price">15,33 €</span>
             </div>
             <div class="details">
-                Подбрано говеждо месо (Black Angus), приготвено на жив огън. Гарнирано с пресни билки, чесново масло и сос от демиглас. Подходящо за споделяне.
+                Премиум телешки котлет, приготвен на бавен огън с билково масло и гарниран с опушен сос.
             </div>
         </div>
 
+        <!-- БУРАТАТА С ПРАВИЛНАТА СНИМКА -->
         <div class="item" onclick="this.classList.toggle('active')">
             <img src="{C17F1801-3379-4C65-ACC8-CCBCDF7CF09E}.png">
             <div class="item-info">
@@ -77,7 +74,7 @@
                 <span class="price">11,03 €</span>
             </div>
             <div class="details">
-                Италианска Бурата, сочни розови домати от градината, домашно босилеково песто, маслинова паста и хрупкави брускети.
+                Свежа бурата, белени розови домати, домашно песто и зехтин екстра върджин.
             </div>
         </div>
 
@@ -90,7 +87,7 @@
                 <span class="price">7,97 €</span>
             </div>
             <div class="details">
-                Хрупкава целувка с мека сърцевина, лек крем от Маскарпоне и ванилия, гарниран с пресни малини, боровинки и мента.
+                Лек десерт с хрупкава обвивка, нежен крем и пресни горски плодове.
             </div>
         </div>
 
@@ -99,8 +96,5 @@
 
     <a href="tel:0895707707" class="footer-btn">РЕЗЕРВИРАЙ МАСА</a>
 
-    <script>
-        // Кодът автоматично ще отваря детайлите при клик благодарение на onclick в HTML-а
-    </script>
 </body>
 </html>
