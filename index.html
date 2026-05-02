@@ -3,44 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOA bar & brunch | Plovdiv</title>
+    <title>NOA bar & brunch | Official Menu</title>
     <style>
-        :root { --gold: #c5a059; --dark: #0d0d0d; --card: #1a1a1a; }
-        body { background-color: var(--dark); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+        :root { --gold: #c5a059; --dark: #080808; --card: #151515; --text: #d1d1d1; }
+        body { background-color: var(--dark); color: white; font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; }
         
+        /* HEADER */
         .hero { 
-            height: 35vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{9E27278C-746C-4454-9F58-6CAC4BC91963}.png');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            border-bottom: 2px solid var(--gold);
+            height: 45vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('{9E27278C-746C-4454-9F58-6CAC4BC91963}.png');
+            background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        .hero h1 { font-size: 3rem; letter-spacing: 10px; margin: 0; color: var(--gold); }
+        .hero h1 { font-size: 4rem; letter-spacing: 15px; margin: 0; color: var(--gold); text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .status { background: #2ecc71; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; margin-top: 10px; font-weight: bold; }
 
         .container { padding: 20px; max-width: 600px; margin: auto; }
-        .section-title { color: var(--gold); border-left: 3px solid var(--gold); padding-left: 10px; margin: 30px 0 15px; text-transform: uppercase; }
-
-        .item { 
-            background: var(--card); border-radius: 15px; overflow: hidden; margin-bottom: 20px; 
-            border: 1px solid #333; cursor: pointer; transition: 0.3s;
-        }
-        .item img { width: 100%; height: 220px; object-fit: cover; }
         
-        .item-info { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .item-info h3 { margin: 0; font-size: 1.1rem; color: var(--gold); }
-        .price { font-weight: bold; }
+        /* QUICK NAV */
+        .nav-scroll { display: flex; overflow-x: auto; gap: 10px; padding: 10px 0; margin-bottom: 20px; scrollbar-width: none; }
+        .nav-item { background: var(--card); padding: 8px 20px; border-radius: 20px; border: 1px solid var(--gold); color: var(--gold); white-space: nowrap; font-size: 0.9rem; text-decoration: none; }
 
-        .details { 
-            max-height: 0; padding: 0 15px; overflow: hidden; 
-            transition: all 0.3s ease-out; background: #222; color: #ccc; font-size: 0.9rem;
-        }
-        .item.active .details { max-height: 150px; padding: 15px; border-top: 1px solid #333; }
+        .category-title { color: var(--gold); border-bottom: 1px solid #333; padding-bottom: 10px; margin: 40px 0 20px; text-transform: uppercase; letter-spacing: 2px; display: flex; justify-content: space-between; }
+
+        /* CARDS */
+        .item { background: var(--card); border-radius: 15px; overflow: hidden; margin-bottom: 20px; border: 1px solid #222; cursor: pointer; transition: 0.3s; }
+        .item img { width: 100%; height: 250px; object-fit: cover; }
+        .item-info { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .item-info h3 { margin: 0; font-size: 1.2rem; color: #fff; }
+        .price { color: var(--gold); font-weight: bold; font-size: 1.2rem; }
+
+        .details { max-height: 0; padding: 0 15px; overflow: hidden; transition: 0.3s; color: var(--text); font-size: 0.95rem; line-height: 1.5; }
+        .item.active .details { max-height: 150px; padding-bottom: 15px; }
+        .item.active { border-color: var(--gold); }
+
+        /* INFO SECTION */
+        .info-box { background: var(--card); padding: 20px; border-radius: 15px; margin-top: 40px; border: 1px solid #333; }
+        .info-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; color: var(--text); }
 
         .footer-btn { 
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            background: var(--gold); color: black; padding: 15px 0;
-            text-decoration: none; border-radius: 50px; font-weight: bold;
-            width: 85%; text-align: center; z-index: 100;
+            background: var(--gold); color: black; padding: 18px 0; text-decoration: none; border-radius: 50px; font-weight: bold; width: 85%; text-align: center; z-index: 100; box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
     </style>
 </head>
@@ -48,47 +49,61 @@
 
     <div class="hero">
         <h1>N O A</h1>
-        <p>BAR & BRUNCH | PLOVDIV</p>
+        <div class="status">ОТВОРЕНО СЕГА</div>
+        <p style="color:white; letter-spacing: 3px; margin-top: 10px;">BAR & BRUNCH | PLOVDIV</p>
     </div>
 
     <div class="container">
-        <h2 class="section-title">Основни ястия</h2>
         
-        <!-- КОТЛЕТЪТ С ПРАВИЛНАТА СНИМКА -->
-        <div class="item" onclick="this.classList.toggle('active')">
-            <img src="{9E27278C-746C-4454-9F58-6CAC4BC91963}.png">
-            <div class="item-info">
-                <h3>Бурата с розов домат</h3>
-                <span class="price">15,33 €</span>
-            </div>
-            <div class="details">
-                Свежа салата
-            </div>
+        <div class="nav-scroll">
+            <a href="#salads" class="nav-item">🥗 Салати</a>
+            <a href="#main" class="nav-item">🍖 Основни</a>
+            <a href="#desserts" class="nav-item">🍰 Десерти</a>
+            <a href="#drinks" class="nav-item">🍸 Коктейли</a>
         </div>
 
-        <!-- БУРАТАТА С ПРАВИЛНАТА СНИМКА -->
+        <h2 id="salads" class="category-title">Салати <span>(1)</span></h2>
         <div class="item" onclick="this.classList.toggle('active')">
             <img src="{C17F1801-3379-4C65-ACC8-CCBCDF7CF09E}.png">
             <div class="item-info">
-                <h3>Котлет</h3>
+                <h3>Бурата с розови домати</h3>
                 <span class="price">11,03 €</span>
             </div>
             <div class="details">
-                Премиум телешки котлет, приготвен на бавен огън с билково масло и гарниран с опушен сос.
+                Италианска бурата 125гр, пресни розови домати, босилеково песто, кедрови ядки и брускета.
             </div>
         </div>
 
-        <h2 class="section-title">Десерти</h2>
+        <h2 id="main" class="category-title">Основни ястия <span>(1)</span></h2>
+        <div class="item" onclick="this.classList.toggle('active')">
+            <img src="{9E27278C-746C-4454-9F58-6CAC4BC91963}.png">
+            <div class="item-info">
+                <h3>Кралски Котлет Томахоук</h3>
+                <span class="price">15,33 €</span>
+            </div>
+            <div class="details">
+                Говежди отрез Black Angus, поднесен с пюре от пащърнак, гриловани аспержи и домашен сос "Демиглас".
+            </div>
+        </div>
 
+        <h2 id="desserts" class="category-title">Десерти <span>(1)</span></h2>
         <div class="item" onclick="this.classList.toggle('active')">
             <img src="{F3478CE5-61EE-4432-B5F3-61831B29A5DA}.png">
             <div class="item-info">
-                <h3>Десерт</h3>
+                <h3>Торта Павлова</h3>
                 <span class="price">7,97 €</span>
             </div>
             <div class="details">
-                Лек десерт с хрупкава обвивка, нежен крем и пресни горски плодове.
+                Целувчен десерт с крем Маскарпоне, горски плодове и свежа мента.
             </div>
+        </div>
+
+        <div class="info-box">
+            <h3 style="color: var(--gold); margin-top:0;">Информация</h3>
+            <div class="info-item"><span>📍 Адрес:</span> <span>Пловдив, Център</span></div>
+            <div class="info-item"><span>⏰ Работно време:</span> <span>08:30 - 23:30</span></div>
+            <div class="info-item"><span>📞 Телефон:</span> <span>0895 707 707</span></div>
+            <p style="font-size: 0.8rem; color: #555; margin-top: 20px;">* Всички цени са в евро и включват ДДС.</p>
         </div>
 
         <div style="height: 100px;"></div>
