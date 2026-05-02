@@ -3,32 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOA bar & brunch</title>
+    <title>NOA bar & brunch | Plovdiv</title>
     <style>
-        body { background-color: #0d0d0d; color: #c5a059; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
-        h1 { font-size: 3rem; letter-spacing: 5px; margin-bottom: 5px; }
-        .menu-item { background: #1a1a1a; margin: 20px auto; padding: 15px; border-radius: 15px; max-width: 400px; border: 1px solid #333; }
-        img { width: 100%; border-radius: 10px; }
-        .price { font-size: 1.5rem; color: #fff; margin-top: 10px; font-weight: bold; }
-        .order-btn { background: #c5a059; color: #000; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; margin-top: 20px; font-weight: bold; }
+        :root { --gold: #c5a059; --dark: #0d0d0d; --card: #1a1a1a; }
+        body { background-color: var(--dark); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+        
+        /* Начална секция с голяма снимка */
+        .hero { 
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{9E27278C-746C-4454-9F58-6CAC4BC91963}.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+        .hero h1 { font-size: 4rem; letter-spacing: 12px; margin: 0; color: var(--gold); text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+        .hero p { font-size: 1.2rem; letter-spacing: 3px; margin-top: 10px; }
+
+        .container { padding: 20px; max-width: 600px; margin: auto; }
+        .section-title { color: var(--gold); border-left: 4px solid var(--gold); padding-left: 10px; margin: 40px 0 20px; text-align: left; text-transform: uppercase; }
+
+        /* Карти на ястията */
+        .item { background: var(--card); border-radius: 20px; overflow: hidden; margin-bottom: 30px; border: 1px solid #333; transition: transform 0.3s; }
+        .item:active { transform: scale(0.98); }
+        .item img { width: 100%; height: 250px; object-fit: cover; }
+        .item-info { padding: 20px; text-align: left; }
+        .item-info h3 { margin: 0; font-size: 1.4rem; color: var(--gold); }
+        .price { font-size: 1.2rem; margin-top: 10px; font-weight: bold; }
+
+        /* Фиксиран бутон за резервация */
+        .footer-btn { 
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            background: var(--gold); color: black; padding: 18px 40px;
+            text-decoration: none; border-radius: 50px; font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5); width: 80%; text-align: center;
+            z-index: 100;
+        }
     </style>
 </head>
 <body>
-    <h1>N O A</h1>
-    <p>BAR & BRUNCH | PLOVDIV</p>
 
-    <div class="menu-item">
-        <img src="{9E27278C-746C-4454-9F58-6CAC4BC91963}.png">
-        <h3>Кралски Котлет Томахоук</h3>
-        <div class="price">15,33 €</div>
+    <div class="hero">
+        <h1>N O A</h1>
+        <p>BAR & BRUNCH | PLOVDIV</p>
     </div>
 
-    <div class="menu-item">
-      <img src="{C17F1801-3379-4C65-ACC8-CCBCDF7CF09E}.png">
-        <h3>Бурата с розов домат</h3>
-        <div class="price">11,03 €</div>
+    <div class="container">
+        <h2 class="section-title">Основно Меню</h2>
+        
+        <div class="item">
+            <img src="{9E27278C-746C-4454-9F58-6CAC4BC91963}.png">
+            <div class="item-info">
+                <h3>Кралски Котлет Томахоук</h3>
+                <div class="price">15,33 €</div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="{C17F1801-3379-4C65-ACC8-CCBCDF7CF09E}.png">
+            <div class="item-info">
+                <h3>Бурата с розов домат</h3>
+                <div class="price">11,03 €</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Десерти</h2>
+
+        <div class="item">
+            <img src="{F3478CE5-61EE-4432-B5F3-61831B29A5DA}.png">
+            <div class="item-info">
+                <h3>Десерт Павлова</h3>
+                <div class="price">7,97 €</div>
+            </div>
+        </div>
+
+        <div style="height: 100px;"></div> <!-- Място за бутона -->
     </div>
 
-    <a href="tel:0895707707" class="order-btn">РЕЗЕРВИРАЙ МАСА</a>
+    <a href="tel:0895707707" class="footer-btn">РЕЗЕРВИРАЙ МАСА СЕГА</a>
+
 </body>
 </html>
